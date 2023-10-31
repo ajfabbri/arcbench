@@ -43,10 +43,19 @@ Each thread does loop:
 - Use a smaller set of strings (singleton, 8, and 128), to make Arc contention more likely.
 - Do less other computation, having the StringSrc.get() calls we're testing in a tighter loop
 
-Result:
 
-![Graph showing clone is much faster under contention when cardinality of string pool is small.](python/arcbench-1.png)
+## Results
 
-![Graph showing clone can be faster under contention. Set of 8 strings](python/arcbench-8.png)
+### aarch64 (Apple Macbook Pro M2)
+![Graph showing clone is much faster under contention when cardinality of string pool is small.](python/aarch64-m2pro/arcbench-1.png)
 
-![Graph showing clone versus Arc<String> performance. Set of 128 strings](python/arcbench-128.png)
+![Graph showing clone can be faster under contention. Set of 8 strings](python/aarch64-m2pro/arcbench-8.png)
+
+![Graph showing clone versus Arc<String> performance. Set of 128 strings](python/aarch64-m2pro/arcbench-128.png)
+
+### x86\_64 (Intel(R) Core(TM) i7-7700 CPU @ 3.60GHz)
+![Graph showing clone is much faster under contention when cardinality of string pool is small.](python/x86_64/arcbench-1.png)
+
+![Graph showing clone can be faster under contention. Set of 8 strings](python/x86_64/arcbench-8.png)
+
+![Graph showing clone versus Arc<String> performance. Set of 128 strings](python/x86_64/arcbench-128.png)
